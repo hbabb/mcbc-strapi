@@ -1,0 +1,51 @@
+{
+  "name": "mcbc-strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "postinstall": "husky",
+    "develop": "strapi develop --debug",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "deploy": "strapi deploy"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "husky": "^9.1.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.616.0",
+    "@strapi/plugin-cloud": "4.25.4",
+    "@strapi/plugin-i18n": "4.25.4",
+    "@strapi/plugin-seo": "^1.9.9",
+    "@strapi/plugin-users-permissions": "4.25.4",
+    "@strapi/provider-upload-aws-s3": "^4.25.4",
+    "@strapi/strapi": "4.25.4",
+    "@strapi/utils": "^4.25.4",
+    "axios": "^1.7.2",
+    "better-sqlite3": "8.6.0",
+    "dotenv": "^16.4.5",
+    "pg": "^8.12.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "strapi-plugin-slugify": "^2.3.8",
+    "strapi-provider-upload-dos": "^4.0.5",
+    "styled-components": "5.3.3",
+    "swr": "^2.2.5"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "f55fadc3-4eb4-4c60-acf8-aa68da200ffb"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "message_from_pastors",
+  "info": {
+    "singularName": "message-from-pastor",
+    "pluralName": "message-from-pastors",
+    "displayName": "MessageFromPastor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "message_from_pastors"
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "date": {
+      "type": "date"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.seo"
+    }
+  }
+}
