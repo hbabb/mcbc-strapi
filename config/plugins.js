@@ -5,40 +5,41 @@ require('dotenv').config();
 const spacesEndpoint = new AWS.Endpoint(env('DO_SPACE_ENDPOINT'));
 
 module.exports = () => ({
-    upload: {
-        config: {
-            provider: '@strapi/provider-upload-aws-s3',
-            providerOptions: {
-                accessKeyId: env('DO_SPACE_ACCESS_KEY'),
-                secretAccessKey: env('DO_SPACE_SECRET_KEY'),
-                region: 'us-east-1',
-                params: {
-                    Bucket: env('DO_SPACE_BUCKET'),
-                },
-                endpoint: spacesEndpoint.href,
-                s3Options: {
-                    s3ForcePathStyle: true,
-                    signatureVersion: 'v4',
-                },
-            },
-            actionOptions: {
-                upload: {},
-                uploadStream: {},
-                delete: {},
-            },
+  upload: {
+    config: {
+      provider: '@strapi/provider-upload-aws-s3',
+      providerOptions: {
+        s3Options: {
+          credentials: {
+            accessKeyId: env('DO_SPACE_ACCESS_KEY'),
+            secretAccessKey: env('DO_SPACE_SECRET_KEY'),
+          },
+          region: 'us-east-1',
+          endpoint: spacesEndpoint.href,
+          s3ForcePathStyle: true,
+          signatureVersion: 'v4',
         },
-    },
-    i18n: {
-        config: {
-            defaultLocale: 'en',
-            locales: ['en', 'fr', 'es', 'de', 'ru', 'zh-Hans', 'zh'],
+        params: {
+          Bucket: env('DO_SPACE_BUCKET'),
         },
+      },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
+      },
     },
-    slugify: {
-        enabled: true,
+  },
+  i18n: {
+    config: {
+      defaultLocale: 'en',
+      locales: ['en', 'fr', 'es', 'de', 'ru', 'zh-Hans', 'zh'],
     },
+  },
+  slugify: {
+    enabled: true,
+  },
 });
-
 
 // Check if environment variables are loaded correctly
 console.log('DO_SPACE_ACCESS_KEY:', env('DO_SPACE_ACCESS_KEY'));

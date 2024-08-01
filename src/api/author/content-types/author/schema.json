@@ -44,6 +44,12 @@
       "relation": "oneToMany",
       "target": "api::message-from-pastor.message-from-pastor",
       "mappedBy": "author"
+    },
+    "prayer_director_messages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prayer-director-message.prayer-director-message",
+      "mappedBy": "author"
     }
   }
 }
