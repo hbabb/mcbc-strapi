@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prayer_director_messages",
+  "info": {
+    "singularName": "prayer-director-message",
+    "pluralName": "prayer-director-messages",
+    "displayName": "PrayerDirectorMessage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "prayer_director_messages"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "published": {
+      "type": "date"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.seo"
+    }
+  }
+}
